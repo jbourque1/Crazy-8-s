@@ -3,17 +3,18 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "Card.h"
+#include "Player.h"
 #include "MainClass.h"
 #include <string>
 using namespace std;
-class Player
+
+class Game
 {
 public:
-	Player(Deck deck);
-	~Player();
-	void showHand();
-	void placeCard(int card, Deck target);
+	Game();
+	~Game();
+	void start();
 
-	Hand hand = Hand();
+	Deck stockPile = Deck(false);
+	Deck discardPile = Deck(true);
 };
-
