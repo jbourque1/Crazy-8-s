@@ -2,9 +2,14 @@
 
 
 
-Player::Player(Deck deck)
+Player::Player(Deck* deck)
 {
-	hand.draw(deck);
+	hand = new Hand();
+	for (int i = 0; i < 7; i++)
+	{
+		hand->hand.push_back(deck->topCard());
+		deck->delTop();
+	}
 }
 
 
@@ -16,9 +21,9 @@ void Player::showHand()
 {
 	int tempSpaces;
 	Card* tempCard;
-	for (size_t i = 0; i < hand.hand.size(); i++)
+	for (size_t i = 0; i < hand->hand.size(); i++)
 	{
-		tempCard = hand.hand[i];
+		tempCard = hand->hand[i];
 		cout << "___________" << endl;
 		cout << "|          " << endl;
 		tempSpaces = (10 - (int)size(tempCard->getNum())) / 2;
@@ -61,8 +66,20 @@ void Player::showHand()
 		cout << "|" << endl;
 }
 
-void Player::placeCard(int card, Deck target)
+void Player::placeCard(int card, Deck* target)
 {
-	target.deck.push_back(hand.hand[card]);
-	hand.hand.erase(hand.hand.begin() + card);
+	target->deck.push_back(hand->hand[card]);
+	hand->hand.erase(hand->hand.begin() + card);
+}
+
+bool Player::testWin()
+{
+	if (hand->hand.size() == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

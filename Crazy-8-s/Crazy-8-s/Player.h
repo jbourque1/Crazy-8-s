@@ -3,17 +3,19 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "Card.h"
-#include "MainClass.h"
+//#include "MainClass.h"
 #include <string>
 using namespace std;
 class Player
 {
 public:
-	Player(Deck deck);
+	Player(Deck *);
 	~Player();
 	void showHand();
-	void placeCard(int card, Deck target);
+	void placeCard(int card, Deck* target);
+	bool testWin();
 
-	Hand hand = Hand();
+
+	Hand * hand;
 };
 

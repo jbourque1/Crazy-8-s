@@ -29,11 +29,11 @@ void Deck::shuffle()
 {
 
 	vector<Card*> temp;
-	srand(time_t(NULL));
 	int random;
 	for (size_t i = 0; i < deck.size(); i++)
 	{
-		random = rand() * deck.size();
+		srand(time(NULL));
+		random = rand() % deck.size();
 		temp.push_back(deck[random]);
 		deck.erase(deck.begin()+random);
 	}
@@ -43,17 +43,22 @@ void Deck::shuffle()
 
 }
 
-void Deck::swap(Deck target)
+void Deck::swap(Deck* target)
 {
 	vector<Card*> temp;
 	temp = deck;
-	deck = target.deck;
-	target.deck = temp;
+	deck = target->deck;
+	target->deck = temp;
 }
 
-void Deck::firstCard(Deck target)
+void Deck::delTop()
 {
-	target.deck.push_back(deck[deck.size() - 1]);
+	deck.pop_back();
+}
+
+void Deck::firstCard(Deck* target)
+{
+	target->deck.push_back(deck[deck.size() - 1]);
 	deck.pop_back();
 
 }
@@ -70,7 +75,7 @@ bool Deck::isEmpty()
 	}
 }
 
-Card * Deck::topCard()
+Card* Deck::topCard()
 {
 	return deck[deck.size()-1];
 }

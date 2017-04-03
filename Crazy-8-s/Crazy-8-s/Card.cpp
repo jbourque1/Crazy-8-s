@@ -15,10 +15,10 @@ Card::~Card()
 
 string Card::getSuit()
 {
-	return suit[cardSuit];
+	return suit[cardSuit - 1];
 }
 
 string Card::getNum()
 {
-	return num[cardNum];
+	return num[cardNum - 1];
 }

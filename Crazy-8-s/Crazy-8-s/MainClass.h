@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Deck.h"
 #include "Hand.h"
-#include "Game.h"
+#include "Player.h"
 #include "Card.h"
 #include "MainClass.h"
 #include <string>
