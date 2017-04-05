@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Draw.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="MainClass.h" />
     <ClInclude Include="Player.h" />
@@ -119,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="MainClass.cpp" />
     <ClCompile Include="Player.cpp" />

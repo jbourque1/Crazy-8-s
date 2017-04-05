@@ -12,11 +12,15 @@ MainClass::~MainClass()
 
 int main()
 {
-	Deck * stockPile = new Deck(false);
-	Player * player1 = new Player(stockPile);
-	Player *player2 = new Player(stockPile);
-	Deck * discardPile = new Deck(true);
+	Deck* stockPile = new Deck(false);
+	Player* player1 = new Player(stockPile);
+	Deck* discardPile = new Deck(true);
 
+
+
+	stockPile->firstCard(discardPile);
+	Draw::drawMiddle(discardPile->topCard());
+	cout << endl << endl << endl;
 	player1->showHand();
 
 

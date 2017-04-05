@@ -7,7 +7,7 @@ Deck::Deck(bool empty)
 
 	if (!empty)
 	{
-		for (int i = 0; i < 13; i++)
+		for (int i = 1; i <= 13; i++)
 		{
 			for (int j = 1; j <= 4; j++)
 			{
@@ -29,8 +29,9 @@ void Deck::shuffle()
 {
 
 	vector<Card*> temp;
-	int random;
-	for (size_t i = 0; i < deck.size(); i++)
+	int random, start;
+	start = deck.size();
+	for (size_t i = 0; i < start; i++)
 	{
 		srand(time(NULL));
 		random = rand() % deck.size();

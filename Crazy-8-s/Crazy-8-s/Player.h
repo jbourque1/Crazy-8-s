@@ -3,6 +3,7 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "Card.h"
+#include "Draw.h"
 //#include "MainClass.h"
 #include <string>
 using namespace std;
