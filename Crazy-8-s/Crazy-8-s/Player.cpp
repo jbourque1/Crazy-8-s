@@ -5,7 +5,7 @@
 Player::Player(Deck* deck)
 {
 	hand = new Hand();
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 16; i++)
 	{
 		hand->hand.push_back(deck->topCard());
 		deck->delTop();

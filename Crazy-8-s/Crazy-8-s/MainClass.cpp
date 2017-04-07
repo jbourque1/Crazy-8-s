@@ -16,13 +16,7 @@ int main()
 	Player* player1 = new Player(stockPile);
 	Deck* discardPile = new Deck(true);
 
-
-
-	stockPile->firstCard(discardPile);
-	Draw::drawMiddle(discardPile->topCard());
-	cout << endl << endl << endl;
-	player1->showHand();
-
+	Draw::drawStart();
 
 	system("pause");
 	return 0;

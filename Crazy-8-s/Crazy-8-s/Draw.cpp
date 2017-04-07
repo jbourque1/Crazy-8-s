@@ -47,12 +47,12 @@ void Draw::drawNum(int length, int start)
 	{
 		if (start < 10)
 		{
-			tempSpaces = 4;
+			tempSpaces = 3;
 			odd = true;
 		}
 		else
 		{
-			tempSpaces = 4;
+			tempSpaces = 3;
 			odd = false;
 		}
 
@@ -63,7 +63,7 @@ void Draw::drawNum(int length, int start)
 			cout << " ";
 		}
 
-		cout << start + i + 1;
+		cout << "(" << start + i + 1 << ")";
 
 		if (start + i + 1 >= 10)
 			odd = false;
@@ -164,6 +164,33 @@ void Draw::drawRow(int length, vector<Card*> vec, int times)
 	drawTop(length);
 }
 
+void Draw::drawStart()
+{
+	drawTop(7);
+	 cout << "|                                                                            |" << endl;
+	cout << " |                                                                            |" << endl;
+	cout << " |        0 0 0      0 0 0           0          0 0 0 0 0      0     0        |" << endl;
+	cout << " |       0           0     0        0 0               0         0   0         |" << endl;
+	cout << " |      0            0  0 0        0   0            0            0 0          |" << endl;
+	cout << " |       0           0    0       0 0 0 0         0               0           |" << endl;
+	cout << " |        0 0 0      0     0     0       0      0 0 0 0 0         0           |" << endl;
+	cout << " |                                                                            |" << endl;
+	cout << " |                                                                            |" << endl;
+	cout << " |                           0 0 0   0     0 0 0                              |" << endl;
+	cout << " |                          0     0   0   0                                   |" << endl;
+	cout << " |                           0 0 0          0 0                               |" << endl;
+	cout << " |                          0     0             0                             |" << endl;
+	cout << " |                           0 0 0         0 0 0                              |" << endl;
+	cout << " |                                                                            |" << endl;
+	cout << " |                                                                            |" << endl;
+	cout << " |         By: James Bourque, Brian Dansereau, and Noah LeVangie              |" << endl;
+	drawTop(7);
+
+	cout << endl << endl;
+	cout << "                        Press ENTER to continue..." << std::flush;
+	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 void Draw::drawMiddle(Card * card)
 {
 	int tempSpaces;
@@ -172,8 +199,8 @@ void Draw::drawMiddle(Card * card)
 		cout << "------------" << "   " << "------------" << endl << " ";
 		cout << "|          |" << "   " << "|          |" << endl << " ";
 		cout << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "|          |" << "   ";
+		cout << "|   D      |" << "   " << "|          |" << endl << " ";
+		cout << "|    E     |" << "   ";
 		tempSpaces = 10 - card->getNum().size();
 		if (tempSpaces % 2 == 0)
 		{
@@ -206,7 +233,7 @@ void Draw::drawMiddle(Card * card)
 		}
 		cout << "|" << endl << " ";
 
-		cout << "|          |" << "   ";
+		cout << "|     C    |" << "   ";
 		cout << "|";
 		cout << "    ";
 		cout << "of";
@@ -214,7 +241,7 @@ void Draw::drawMiddle(Card * card)
 
 		cout << "|" << endl << " ";
 
-		cout << "|          |" << "   ";
+		cout << "|      K   |" << "   ";
 
 		tempSpaces = 10 - card->getSuit().size();
 		if (tempSpaces % 2 == 0)
