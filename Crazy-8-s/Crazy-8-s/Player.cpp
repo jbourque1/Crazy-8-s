@@ -63,7 +63,17 @@ bool Player::placeCard(int card, Deck* target)
 	}
 	else if (hand->hand[card]->getNum() == "8")
 	{
+		playedEight(target);
+		return true;
 	}
+}
+
+void Player::playedEight(Deck* deck)
+{
+	system("cls");
+	Draw::drawMiddle(deck->topCard());
+	cout << endl << endl;
+	Draw::drawChange();
 }
 
 bool Player::testWin()
