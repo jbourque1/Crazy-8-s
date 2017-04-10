@@ -278,8 +278,8 @@ void Draw::drawMiddle(Card * card)
 		cout << "|          |" << "   " << "|          |" << endl << " ";
 		cout << "|          |" << "   " << "|          |" << endl << " ";
 		cout << "------------" << "   " << "------------" << endl << " ";
-		
 
+		cout << endl << endl;
 }
 
 void Draw::drawCard(Card * card)
