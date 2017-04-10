@@ -189,6 +189,7 @@ void Draw::drawStart()
 	cout << endl << endl;
 	cout << "                        Press ENTER to start..." << std::flush;
 	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	system("cls");
 }
 
 void Draw::drawMiddle(Card * card)
