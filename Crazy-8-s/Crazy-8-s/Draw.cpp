@@ -152,7 +152,7 @@ void Draw::drawRow(int length, vector<Card*> vec, int times)
 		}
 		else
 		{
-			tempSpaces -= 1;
+			tempSpaces -= 1
 			tempSpaces /= 2;
 			odd = true;
 		}
@@ -341,18 +341,16 @@ void Draw::drawCardE()
 
 void Draw::drawChange()
 {
-	cout << "        (1)                 (2)                 (3)                 (4)" << endl << endl;
-
-
-	cout << "     __     __               _                   _                             ";
-	cout << "    /  \   /  \             / \                 / \                            ";
-	cout << "   /    \_/    \           /   \               /   \                           ";
-	cout << "   \           /          /     \             /     \                          ";
-	cout << "    \         /          /       \            \     /                          ";
-	cout << "     \       /           \       /                                             ";
-	cout << "      \     /             \     /                                              ";
-	cout << "       \   /               \   /                                               ";
-	cout << "        \_/                 \_/                                                ";
-	cout << "                                                                               ";
-
+	cout << "          (1)                (2)              (3)                (4)          " << endl << endl;
+	cout << "                                                                              " << endl;
+	cout << "     0 0 0   0 0 0            0                0                 0 0          " << endl;
+	cout << "    0      0      0         0   0            0   0             0     0        " << endl;
+	cout << "    0             0        0     0         0       0        00 0     0 00     " << endl;
+	cout << "      0         0         0       0      0     0     0     0     0 0     0    " << endl;
+	cout << "        0     0            0     0      0   0  0  0   0     00 0  0  0 00     " << endl;
+	cout << "         0   0              0   0         00   0   00             0           " << endl;
+	cout << "           0                  0               000                000          " << endl;
+	cout << "                                                                              " << endl;
+	cout << "        (HEARTS)          (DIAMONDS)        (SPADES)           (CLUBS)        " << endl;
+	cout << endl << endl;
 }
