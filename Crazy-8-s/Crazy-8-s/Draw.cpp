@@ -234,7 +234,7 @@ void Draw::drawMiddle(Card * card)
 		}
 		cout << "|" << endl << " ";
 
-		cout << "                         " << "|     C    |" << "   ";
+		cout << "                        " << "|     C    |" << "   ";
 		cout << "|";
 		cout << "    ";
 		cout << "of";
@@ -242,7 +242,7 @@ void Draw::drawMiddle(Card * card)
 
 		cout << "|" << endl << " ";
 
-		cout << "                         " << "|      K   |" << "   ";
+		cout << "                        " << "|      K   |" << "   ";
 
 		tempSpaces = 10 - card->getSuit().size();
 		if (tempSpaces % 2 == 0)
@@ -276,9 +276,9 @@ void Draw::drawMiddle(Card * card)
 		}
 		cout << "|" << endl << " ";
 		
-		cout << "                         " << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "                         " << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "                         " << "------------" << "   " << "------------" << endl << " ";
+		cout << "                        " << "|          |" << "   " << "|          |" << endl << " ";
+		cout << "                        " << "|          |" << "   " << "|          |" << endl << " ";
+		cout << "                        " << "------------" << "   " << "------------" << endl << " ";
 
 		cout << endl << endl;
 }
