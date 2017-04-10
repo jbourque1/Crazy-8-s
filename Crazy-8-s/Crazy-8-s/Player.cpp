@@ -56,14 +56,14 @@ bool Player::placeCard(int card, Deck* target)
 {
 	if (hand->hand[card]->getNum() == "8")
 	{
-		target->deck.push_back(hand->hand[card]);
+		target->deck.push_back(playedEight(hand->hand[card], target));
 		hand->hand.erase(hand->hand.begin() + card);
 		return true;
 	}
 	else if (hand->hand[card]->getNum() == target->deck[target->deck.size() - 1]->getNum() ||
 		hand->hand[card]->getSuit() == target->deck[target->deck.size() - 1]->getSuit())
 	{
-		target->deck.push_back(playedEight(hand->hand[card], target));
+		target->deck.push_back(hand->hand[card]);
 		hand->hand.erase(hand->hand.begin() + card);
 		return true;
 	}
@@ -83,7 +83,7 @@ Card* Player::playedEight(Card* card, Deck* deck)
 	cout << endl;
 	cout << "What suit would you like to change your 8 to.(Input the number above the suit you want) Suit: ";
 	cin >> change;
-	card->changeSuit(change - 1);
+	card->changeSuit(change);
 	return card;
 
 }
