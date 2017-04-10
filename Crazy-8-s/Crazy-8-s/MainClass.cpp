@@ -12,8 +12,26 @@ MainClass::~MainClass()
 
 int main()
 {
+	Deck* stockPile = new Deck(false);
+	Player* player1 = new Player(stockPile);
+	Deck* discardPile = new Deck(true);
+
+	stockPile->firstCard(discardPile);
+
+	Draw::drawStart();
+	Draw::drawMiddle(discardPile->topCard());
+	player1->showHand();
+
+	system("pause");
+	return 0;
+}
+
+int main()
+{
 	vector<Player*> players;
 	int numberPlayers;
+	int playerInput;
+
 	Deck* stockPile = new Deck(false);
 	Deck* discardPile = new Deck(true);
 	Draw::drawStart();
@@ -34,8 +52,20 @@ int main()
 
 	for (int j = 0; j < numberPlayers; j++)
 	{
-		players[j]; // loop for each players turn
-			// use goto or set j = 0 to return to player 1
+		players[j]->showHand();           // loop for each players turn
+		system("cls");		// use goto or set j = 0 to return to player 1
+
+		cout << "Pick a card, or enter 0 for help.";
+		cin >> playerInput;
+
+		if (playerInput == 0)
+		{
+			Draw::drawRules();
+		}
+		else
+		{
+			players[j]->placeCard(playerInput - 1, discardPile);
+		}
 	}
 
 	system("pause");
