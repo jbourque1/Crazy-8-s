@@ -214,7 +214,7 @@ void Draw::drawMiddle(Card * card)
 			tempSpaces /= 2;
 			odd = true;
 		}
-		cout << "                         |";
+		cout << "|";
 
 		for (int i = 0; i < tempSpaces; i++)
 		{
@@ -337,4 +337,22 @@ void Draw::drawCardE()
 	drawEmpty(1, true);
 	drawEmpty(1, false);
 	drawTop(1);
+}
+
+void Draw::drawChange()
+{
+	cout << "        (1)                 (2)                 (3)                 (4)" << endl << endl;
+
+
+	cout << "     __     __               _                   _                               ";
+	cout << "    /  \   /  \             / \                 / \                               ";
+	cout << "   /    \_/    \           /   \               /   \                             ";
+	cout << "   \           /          /     \             /     \                            ";
+	cout << "    \         /          /       \            \     /                              ";
+	cout << "     \       /           \       /                                                ";
+	cout << "      \     /             \     /                                                ";
+	cout << "       \   /               \   /                                                ";
+	cout << "        \_/                 \_/                                                  ";
+	cout << "                                                                               ";
+
 }

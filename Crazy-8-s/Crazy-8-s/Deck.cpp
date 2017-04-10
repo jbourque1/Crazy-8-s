@@ -15,7 +15,7 @@ Deck::Deck(bool empty)
 			}
 
 		}
-		shuffle();
+		shuffleInc(10);
 	}
 
 }
@@ -41,7 +41,6 @@ void Deck::shuffle()
 
 	deck = temp;
 
-
 }
 
 void Deck::swap(Deck* target)
@@ -50,6 +49,14 @@ void Deck::swap(Deck* target)
 	temp = deck;
 	deck = target->deck;
 	target->deck = temp;
+}
+
+void Deck::shuffleInc(int amount)
+{
+	for (int i = 0; i < amount; i++)
+	{
+		shuffle();
+	}
 }
 
 void Deck::delTop()

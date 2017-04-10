@@ -22,3 +22,8 @@ string Card::getNum()
 {
 	return num[cardNum - 1];
 }
+
+void Card::changeSuit(int suit)
+{
+	cardSuit = suit;
+}

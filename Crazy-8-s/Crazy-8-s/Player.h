@@ -13,7 +13,7 @@ public:
 	Player(Deck *);
 	~Player();
 	void showHand();
-	void placeCard(int card, Deck* target);
+	bool placeCard(int card, Deck* target);
 	bool testWin();
 
 

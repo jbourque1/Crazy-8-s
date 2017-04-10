@@ -12,8 +12,8 @@ class Deck
 public:
 	Deck(bool empty);
 	~Deck();
-	void shuffle();
 	void swap(Deck* target);
+	void shuffleInc(int amount);
 	void delTop();
 	void firstCard(Deck* target);
 	bool isEmpty();
@@ -22,5 +22,7 @@ public:
 	vector<Card*> deck;
 
 private:
+
+	void shuffle();
 
 };

@@ -19,6 +19,7 @@ public:
 	static void drawMiddle(Card* card);
 	static void drawCard(Card* card);
 	static void drawCardE();
+	static void drawChange();
 
 };
 

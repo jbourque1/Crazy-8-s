@@ -52,10 +52,18 @@ void Player::showHand()
 	}
 }
 
-void Player::placeCard(int card, Deck* target)
+bool Player::placeCard(int card, Deck* target)
 {
-	target->deck.push_back(hand->hand[card]);
-	hand->hand.erase(hand->hand.begin() + card);
+	if (hand->hand[card]->getNum() == target->deck[target->deck.size() - 1]->getNum() ||
+		hand->hand[card]->getSuit() == target->deck[target->deck.size() - 1]->getSuit())
+	{
+		target->deck.push_back(hand->hand[card]);
+		hand->hand.erase(hand->hand.begin() + card);
+		return true;
+	}
+	else if (hand->hand[card]->getNum() == "8")
+	{
+	}
 }
 
 bool Player::testWin()

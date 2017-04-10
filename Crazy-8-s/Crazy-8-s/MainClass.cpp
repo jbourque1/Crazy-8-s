@@ -16,11 +16,7 @@ int main()
 	Player* player1 = new Player(stockPile);
 	Deck* discardPile = new Deck(true);
 
-	Draw::drawStart();
-	system("CLS");
-	stockPile->firstCard(discardPile);
-	Draw::drawMiddle(discardPile->topCard());
-	player1->showHand();
+	Draw::drawChange();
 
 	system("pause");
 	return 0;
