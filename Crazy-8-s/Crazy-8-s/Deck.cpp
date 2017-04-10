@@ -59,7 +59,7 @@ void Deck::delTop()
 
 void Deck::firstCard(Deck* target)
 {
-
+	target->deck.push_back(topCard());
 	deck.pop_back();
 
 }
