@@ -195,12 +195,13 @@ void Draw::drawMiddle(Card * card)
 {
 	int tempSpaces;
 	bool odd;
-		cout << " ";
-		cout << "------------" << "   " << "------------" << endl << " ";
-		cout << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "|          |" << "   " << "|          |" << endl << " ";
-		cout << "|   D      |" << "   " << "|          |" << endl << " ";
+		cout << "                         ";
+		cout << "------------" << "   " << "------------" << endl << "                         ";
+		cout << "|          |" << "   " << "|          |" << endl << "                         ";
+		cout << "|          |" << "   " << "|          |" << endl << "                         ";
+		cout << "|   D      |" << "   " << "|          |" << endl << "                         ";
 		cout << "|    E     |" << "   ";
+
 		tempSpaces = 10 - card->getNum().size();
 		if (tempSpaces % 2 == 0)
 		{
