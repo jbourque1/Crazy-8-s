@@ -345,7 +345,7 @@ void Draw::drawChange()
 	cout << "                                                                              " << endl;
 	cout << "     0 0 0   0 0 0            0                0                 0 0          " << endl;
 	cout << "    0      0      0         0   0            0   0             0     0        " << endl;
-	cout << "     0           0         0     0         0       0        00 0     0 00     " << endl;
+	cout << "    0             0        0     0         0       0        00 0     0 00     " << endl;
 	cout << "      0         0         0       0      0     0     0     0     0 0     0    " << endl;
 	cout << "        0     0            0     0      0   0  0  0   0     00 0  0  0 00     " << endl;
 	cout << "         0   0              0   0         00   0   00             0           " << endl;
