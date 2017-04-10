@@ -187,7 +187,7 @@ void Draw::drawStart()
 	drawTop(7);
 
 	cout << endl << endl;
-	cout << "                        Press ENTER to continue..." << std::flush;
+	cout << "                        Press ENTER to start..." << std::flush;
 	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 

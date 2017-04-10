@@ -16,6 +16,9 @@ int main()
 	Player* player1 = new Player(stockPile);
 	Deck* discardPile = new Deck(true);
 
+
+
+
 	Draw::drawStart();
 
 	system("pause");
