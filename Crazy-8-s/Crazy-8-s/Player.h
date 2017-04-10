@@ -1,11 +1,10 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Deck.h"
 #include "Hand.h"
 #include "Card.h"
 #include "Draw.h"
-//#include "MainClass.h"
-#include <string>
 using namespace std;
 class Player
 {
@@ -14,7 +13,7 @@ public:
 	~Player();
 	void showHand();
 	bool placeCard(int card, Deck* target);
-	void playedEight(Deck* deck);
+	Card* playedEight(Card* card, Deck* deck);
 	bool testWin();
 
 

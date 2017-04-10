@@ -152,7 +152,7 @@ void Draw::drawRow(int length, vector<Card*> vec, int times)
 		}
 		else
 		{
-			tempSpaces -= 1
+			tempSpaces -= 1;
 			tempSpaces /= 2;
 			odd = true;
 		}
