@@ -354,3 +354,16 @@ void Draw::drawChange()
 	cout << "        (HEARTS)          (DIAMONDS)        (SPADES)           (CLUBS)        " << endl;
 	cout << endl << endl;
 }
+
+void Draw::drawRules()
+{
+	cout << "Welcome to Crazy 8's" << endl << endl;
+	cout << "The object of this game is to empty your hand before everybody else does." << endl << endl;
+	cout << "On your turn, you will place a card from your hand into the pile." << endl << endl;
+	cout << "You can only place cards into the pile if the cards is the same number, or is the same suit." << endl << endl;
+	cout << "The only exception is the 8. You can play one at any time, and you can make it any suit you want it to be." << endl << endl;
+}
+
+void Draw::drawHelp()
+{
+}

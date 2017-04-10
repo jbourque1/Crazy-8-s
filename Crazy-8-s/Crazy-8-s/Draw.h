@@ -20,6 +20,8 @@ public:
 	static void drawCard(Card* card);
 	static void drawCardE();
 	static void drawChange();
+	static void drawRules();
+	static void drawHelp();
 
 };
 

@@ -81,7 +81,7 @@ Card* Player::playedEight(Card* card, Deck* deck)
 	cout << endl << endl;
 	Draw::drawChange();
 	cout << endl;
-	cout << "What suit would you like to chnage your 8 to.(Input the number above the suit you want) Suit: ";
+	cout << "What suit would you like to change your 8 to.(Input the number above the suit you want) Suit: ";
 	cin >> change;
 	card->changeSuit(change - 1);
 	return card;
