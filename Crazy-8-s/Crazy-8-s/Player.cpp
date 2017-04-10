@@ -54,16 +54,38 @@ void Player::showHand()
 
 bool Player::placeCard(int card, Deck* target)
 {
-	if (hand->hand[card]->getNum() == target->deck[target->deck.size() - 1]->getNum() ||
-		hand->hand[card]->getSuit() == target->deck[target->deck.size() - 1]->getSuit())
+	if (hand->hand[card]->getNum() == "8")
 	{
 		target->deck.push_back(hand->hand[card]);
 		hand->hand.erase(hand->hand.begin() + card);
 		return true;
 	}
-	else if (hand->hand[card]->getNum() == "8")
+	else if (hand->hand[card]->getNum() == target->deck[target->deck.size() - 1]->getNum() ||
+		hand->hand[card]->getSuit() == target->deck[target->deck.size() - 1]->getSuit())
 	{
+		target->deck.push_back(playedEight(hand->hand[card], target));
+		hand->hand.erase(hand->hand.begin() + card);
+		return true;
 	}
+	else
+	{
+		return false;
+	}
+}
+
+Card* Player::playedEight(Card* card, Deck* deck)
+{
+	int change;
+	system("cls");
+	Draw::drawMiddle(deck->topCard());
+	cout << endl << endl;
+	Draw::drawChange();
+	cout << endl;
+	cout << "What suit would you like to chnage your 8 to.(Input the number above the suit you want) Suit: ";
+	cin >> change;
+	card->changeSuit(change - 1);
+	return card;
+
 }
 
 bool Player::testWin()
