@@ -15,6 +15,7 @@ int main()
 	vector<Player*> players;
 	int numberPlayers;
 	int playerInput;
+	bool valid = true;;
 
 	Deck* stockPile = new Deck(false);
 	Deck* discardPile = new Deck(true);
@@ -23,6 +24,20 @@ int main()
 
 	cout << "Enter the number of players (between 2 and 4): ";
 	cin >> numberPlayers;
+	cin.clear();
+	while (valid)
+	{
+		if (numberPlayers < 2 || numberPlayers > 4 || numberPlayers == NULL)
+		{
+			cout << " That is an invalid number of players. Enter the number of players (between 2 and 4): ";
+			cin >> numberPlayers;
+			cin.clear();
+		}
+		else
+		{
+			break;
+		}
+	}
 	system("cls");
 
 	Draw::drawRules();
@@ -32,41 +47,76 @@ int main()
 		players.push_back(new Player(stockPile));
 	}
 
-loopStart:
+	int i = 0;
 
-	for (int j = 0; j < numberPlayers; j++)
+	while(i < numberPlayers)
 	{
-	loopTop:
 
 		Draw::drawMiddle(discardPile->topCard());
-		players[j]->showHand();           // loop for each players turn
+		players[i]->showHand();           // loop for each players turn
 
-		cout << endl << "Pick a card, or enter 0 for help.";
+		cout << endl << "Pick a card, or enter 0 to show other commands.";
 		cin >> playerInput;
 
 		if (playerInput == 0)
 		{
 			system("cls");
-			Draw::drawRules();
-			goto loopTop;
+			cout << "Commands:" << endl;
+			cout << "1: Draw a card." << endl;
+			cout << "2: Pass turn." << endl;
+			cout << "3: Show rules." << endl;
+			cin >> playerInput;
+			if (playerInput == 1)
+			{
+				players[i]->drawCard(stockPile);
+				system("cls");
+				continue;
+			}
+			else if (playerInput == 2)
+			{
+				i++;
+				system("cls");
+				continue;
+			}
+			else if (playerInput == 3)
+			{
+				system("cls");
+				Draw::drawRules();
+				system("cls");
+				continue;
+			}	
 		}
 		else
 		{
-			if (!players[j]->placeCard(playerInput - 1, discardPile))
+			if (!players[i]->placeCard(playerInput - 1, discardPile))
 			{
 				system("cls");
 				cout << "The Card you tried to place is an invalid move. If you need help enter 0." << endl << endl;
 				system("pause");
 				system("cls");
-				goto loopTop;
+				continue;
 			}
 			else
 			{
 				system("cls");
 			}
 		}
+
+		if (players[i]->testWin())
+		{
+			system("cls");
+			cout << "Player " << i + 1 << " is the winner!!!!!!!!!";
+			break;
+		}
+		if (i < numberPlayers - 1)
+		{
+			i++;
+		}
+		else
+		{
+			i = 0;
+		}
 	}
-	goto loopStart;
 
 	system("pause");
 	return 0;

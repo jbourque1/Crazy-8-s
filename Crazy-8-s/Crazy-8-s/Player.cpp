@@ -44,7 +44,10 @@ void Player::showHand()
 		{
 			temp.push_back(hand->hand[i]);
 		}
-		Draw::drawRow(extra, temp, rows);
+		if (extra != 0)
+		{
+			Draw::drawRow(extra, temp, rows);
+		}
 	}
 	else
 	{
@@ -54,8 +57,11 @@ void Player::showHand()
 
 bool Player::placeCard(int card, Deck* target)
 {
+
+
 	if (hand->hand[card]->getNum() == "8")
 	{
+		target->topCard()->changeSuit(target->topCard()->getFirst());
 		target->deck.push_back(playedEight(hand->hand[card], target));
 		hand->hand.erase(hand->hand.begin() + card);
 		return true;
@@ -63,6 +69,7 @@ bool Player::placeCard(int card, Deck* target)
 	else if (hand->hand[card]->getNum() == target->deck[target->deck.size() - 1]->getNum() ||
 		hand->hand[card]->getSuit() == target->deck[target->deck.size() - 1]->getSuit())
 	{
+		target->topCard()->changeSuit(target->topCard()->getFirst());
 		target->deck.push_back(hand->hand[card]);
 		hand->hand.erase(hand->hand.begin() + card);
 		return true;
@@ -73,6 +80,16 @@ bool Player::placeCard(int card, Deck* target)
 	}
 }
 
+void Player::drawCard(Deck* target)
+{
+	if (target->deck.size() == 0)
+	{
+
+	}
+	hand->hand.push_back(target->topCard());
+	target->delTop();
+}
+
 Card* Player::playedEight(Card* card, Deck* deck)
 {
 	int change;
@@ -81,7 +98,7 @@ Card* Player::playedEight(Card* card, Deck* deck)
 	cout << endl << endl;
 	Draw::drawChange();
 	cout << endl;
-	cout << "What suit would you like to change your 8 to.(Input the number above the suit you want) Suit: ";
+	cout << "Choose a suit. (Input the number above the suit you want) Suit: ";
 	cin >> change;
 	card->changeSuit(change);
 	return card;
