@@ -113,12 +113,15 @@ bool Player::testWin()
 	}
 }
 
-int Player::testInput(int input, int max, int min) // test
+int Player::testInput(char input, int max, int min) // test
 {
 	bool valid = false;
 
+	const char* temp = &input;
+
 	if (isdigit(input) == true)
 	{
+		atoi(temp);
 		if (input < max || input >= min)
 		{
 			valid = true;
