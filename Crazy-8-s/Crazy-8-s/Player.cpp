@@ -82,10 +82,6 @@ bool Player::placeCard(int card, Deck* target)
 
 void Player::drawCard(Deck* target)
 {
-	if (target->deck.size() == 0)
-	{
-
-	}
 	hand->hand.push_back(target->topCard());
 	target->delTop();
 }
