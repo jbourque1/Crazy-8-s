@@ -51,7 +51,10 @@ int main()
 
 	while(i < numberPlayers)
 	{
-
+		system("cls");
+		cout << "Player " << i + 1 << ", it is your turn!";
+		system("pause");
+		system("cls");
 		Draw::drawMiddle(discardPile->topCard());
 		players[i]->showHand();           // loop for each players turn
 
@@ -68,6 +71,10 @@ int main()
 			cin >> playerInput;
 			if (playerInput == 1)
 			{
+				if (stockPile->deck.size() == 0)
+				{
+					stockPile->swap(discardPile);
+				}
 				players[i]->drawCard(stockPile);
 				system("cls");
 				continue;
