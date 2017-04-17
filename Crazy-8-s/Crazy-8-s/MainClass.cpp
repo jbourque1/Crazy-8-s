@@ -61,6 +61,9 @@ int main()
 		cout << endl << "Pick a card, or enter 0 to show other commands.";
 		cin >> playerInput;
 
+	//change player input to type char
+		players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
+	
 		if (playerInput == 0)
 		{
 			system("cls");

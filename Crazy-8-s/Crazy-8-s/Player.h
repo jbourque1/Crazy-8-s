@@ -16,6 +16,7 @@ public:
 	void drawCard(Deck* target);
 	Card* playedEight(Card* card, Deck* deck);
 	bool testWin();
+	int testInput(int input, int max, int min);
 
 
 	Hand * hand;

@@ -112,3 +112,36 @@ bool Player::testWin()
 		return false;
 	}
 }
+
+int Player::testInput(int input, int max, int min) // test
+{
+	bool valid = false;
+
+	if (isdigit(input) == true)
+	{
+		if (input < max || input >= min)
+		{
+			valid = true;
+		}
+		else
+		{
+			valid = false;
+		}
+	}
+	else if (isalpha(input) == true)
+	{
+		valid = false;
+	}
+
+	if (valid == true)
+	{
+		return input; // change ascii to int and return int value
+	}
+	else
+	{
+		system("cls");
+		cout << "Enter a valid input" << endl;
+		system("pause");
+	}
+}
+
