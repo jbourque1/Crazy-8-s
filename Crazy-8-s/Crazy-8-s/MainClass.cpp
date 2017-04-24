@@ -53,16 +53,17 @@ int main()
 	{
 		system("cls");
 		cout << "Player " << i + 1 << ", it is your turn!";
+		cout << endl;
 		system("pause");
 		system("cls");
 		Draw::drawMiddle(discardPile->topCard());
 		players[i]->showHand();           // loop for each players turn
 
-		cout << endl << "Pick a card, or enter 0 to show other commands.";
+		cout << endl << "Pick a card, or enter 0 to show other commands.\nInput: ";
 		cin >> playerInput;
 
 	//change player input to type char
-		players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
+		//players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
 	
 		if (playerInput == 0)
 		{
@@ -108,6 +109,13 @@ int main()
 			}
 			else
 			{
+				system("cls");
+				Draw::drawMiddle(discardPile->topCard());
+				cout << endl << endl << endl;
+				cout << "                         ";
+				cout << "Player " << i + 1 << " placed the " << discardPile->topCard()->getNum() << " of " << discardPile->topCard()->getSuit() << ".";
+				cout << endl << "                         ";
+				system("pause");
 				system("cls");
 			}
 		}

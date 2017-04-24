@@ -113,7 +113,7 @@ bool Player::testWin()
 	}
 }
 
-int Player::testInput(char input, int max, int min) // test
+/*int Player::testInput(char input, int max, int min) // test
 {
 	bool valid = false;
 
@@ -146,5 +146,5 @@ int Player::testInput(char input, int max, int min) // test
 		cout << "Enter a valid input" << endl;
 		system("pause");
 	}
-}
+}*/
 
