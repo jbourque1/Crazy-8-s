@@ -13,6 +13,7 @@ public:
 	~Player();
 	void showHand();
 	bool placeCard(int card, Deck* target);
+	bool posibilities(Deck* target);
 	void drawCard(Deck* target);
 	Card* playedEight(Card* card, Deck* deck);
 	bool testWin();

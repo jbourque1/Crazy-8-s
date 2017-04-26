@@ -5,7 +5,7 @@
 Player::Player(Deck* deck)
 {
 	hand = new Hand();
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 25; i++)
 	{
 		hand->hand.push_back(deck->topCard());
 		deck->delTop();
@@ -78,6 +78,18 @@ bool Player::placeCard(int card, Deck* target)
 	{
 		return false;
 	}
+}
+
+bool Player::posibilities(Deck * target)
+{
+	for (int i = 0; i < hand->hand.size(); i++)
+	{
+		if (hand->hand[i]->getNum() == target->topCard()->getNum() || hand->hand[i]->getSuit() == target->topCard()->getSuit() || hand->hand[i]->getNum() == "8")
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void Player::drawCard(Deck* target)

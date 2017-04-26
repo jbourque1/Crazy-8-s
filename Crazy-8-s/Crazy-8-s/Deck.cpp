@@ -46,9 +46,12 @@ void Deck::shuffle()
 void Deck::swap(Deck* target)
 {
 	vector<Card*> temp;
+	Card* top = target->topCard();
+	target->delTop();
 	temp = deck;
 	deck = target->deck;
 	target->deck = temp;
+	target->deck.push_back(top);
 }
 
 void Deck::shuffleInc(int amount)

@@ -52,72 +52,90 @@ int main()
 	while(i < numberPlayers)
 	{
 		system("cls");
+		cout << endl << endl << endl << "                                 ";
 		cout << "Player " << i + 1 << ", it is your turn!";
-		cout << endl;
+		cout << endl << "                                 ";
 		system("pause");
-		system("cls");
-		Draw::drawMiddle(discardPile->topCard());
-		players[i]->showHand();           // loop for each players turn
-
-		cout << endl << "Pick a card, or enter 0 to show other commands.\nInput: ";
-		cin >> playerInput;
-
-	//change player input to type char
-		//players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
-	
-		if (playerInput == 0)
+		while (true)
 		{
 			system("cls");
-			cout << "Commands:" << endl;
-			cout << "1: Draw a card." << endl;
-			cout << "2: Pass turn." << endl;
-			cout << "3: Show rules." << endl;
+			cout << endl << endl << "                                 ";
+			cout << "Player " << i + 1;
+			Draw::drawMiddle(discardPile->topCard());
+			players[i]->showHand();           // loop for each players turn
+
+			cout << endl << "Pick a card, or enter 0 to show other commands.\nInput: ";
 			cin >> playerInput;
-			if (playerInput == 1)
+
+			//change player input to type char
+				//players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
+
+			if (playerInput == 0)
 			{
-				if (stockPile->deck.size() == 0)
+				system("cls");
+				cout << "Commands:" << endl;
+				cout << "1: Draw a card." << endl;
+				cout << "2: Show rules." << endl;
+				cin >> playerInput;
+				if (playerInput == 1)
 				{
-					stockPile->swap(discardPile);
+					if (stockPile->deck.size() == 0)
+					{
+						stockPile->swap(discardPile);
+
+						if (stockPile->deck.size() == 0)
+						{
+							if (players[i]->posibilities(discardPile))
+							{
+								system("cls");
+								cout << "The deck is empty, but you still have a card you can play in your hand." << endl;
+								system("pause");
+								continue;
+							}
+							else
+							{
+								system("cls");
+								cout << "Skipped." << endl;
+								system("pause");
+								break;
+							}
+						}
+					}
+					players[i]->drawCard(stockPile);
+					system("cls");
+					continue;
 				}
-				players[i]->drawCard(stockPile);
-				system("cls");
-				continue;
-			}
-			else if (playerInput == 2)
-			{
-				i++;
-				system("cls");
-				continue;
-			}
-			else if (playerInput == 3)
-			{
-				system("cls");
-				Draw::drawRules();
-				system("cls");
-				continue;
-			}	
-		}
-		else
-		{
-			if (!players[i]->placeCard(playerInput - 1, discardPile))
-			{
-				system("cls");
-				cout << "The Card you tried to place is an invalid move. If you need help enter 0." << endl << endl;
-				system("pause");
-				system("cls");
-				continue;
+				else if (playerInput == 2)
+				{
+					system("cls");
+					Draw::drawRules();
+					system("cls");
+					continue;
+				}
 			}
 			else
 			{
-				system("cls");
-				Draw::drawMiddle(discardPile->topCard());
-				cout << endl << endl << endl;
-				cout << "                         ";
-				cout << "Player " << i + 1 << " placed the " << discardPile->topCard()->getNum() << " of " << discardPile->topCard()->getSuit() << ".";
-				cout << endl << "                         ";
-				system("pause");
-				system("cls");
+				if (!players[i]->placeCard(playerInput - 1, discardPile))
+				{
+					system("cls");
+					cout << "The Card you tried to place is an invalid move. If you need help enter 0." << endl << endl;
+					system("pause");
+					system("cls");
+					continue;
+				}
+				else
+				{
+					system("cls");
+					Draw::drawMiddle(discardPile->topCard());
+					cout << endl << endl << endl;
+					cout << "                         ";
+					cout << "Player " << i + 1 << " placed the " << discardPile->topCard()->getNum() << " of " << discardPile->topCard()->getSuit() << ".";
+					cout << endl << "                         ";
+					system("pause");
+					system("cls");
+				}
 			}
+			break;
 		}
 
 		if (players[i]->testWin())

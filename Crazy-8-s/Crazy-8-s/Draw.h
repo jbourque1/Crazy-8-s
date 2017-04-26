@@ -21,7 +21,6 @@ public:
 	static void drawCardE();
 	static void drawChange();
 	static void drawRules();
-	static void drawHelp();
 
 };
 
