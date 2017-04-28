@@ -13,6 +13,7 @@ MainClass::~MainClass()
 int main()
 {
 	vector<Player*> players;
+	string in;
 	int numberPlayers;
 	int playerInput;
 	bool valid = true;;
@@ -23,21 +24,20 @@ int main()
 	Draw::drawStart();
 
 	cout << "Enter the number of players (between 2 and 4): ";
-	cin >> numberPlayers;
-	cin.clear();
-	while (valid)
+	while (getline(cin, in)) 
 	{
-		if (numberPlayers < 2 || numberPlayers > 4 || numberPlayers == NULL)
+		if (isdigit(in[0]))
 		{
-			cout << " That is an invalid number of players. Enter the number of players (between 2 and 4): ";
-			cin >> numberPlayers;
-			cin.clear();
+			numberPlayers = stoi(in);
+			if (numberPlayers >= 2 && numberPlayers <= 4)
+			{
+				break;
+			}
 		}
-		else
-		{
-			break;
-		}
+		system("cls");
+		cout << "Invalid input. Enter the number of players (between 2 and 4): ";
 	}
+	
 	system("cls");
 
 	Draw::drawRules();
@@ -52,31 +52,60 @@ int main()
 	while(i < numberPlayers)
 	{
 		system("cls");
-		cout << endl << endl << endl << "                                 ";
+		cout << endl << endl << endl << "                          ";
 		cout << "Player " << i + 1 << ", it is your turn!";
-		cout << endl << "                                 ";
+		cout << endl << "                          ";
 		system("pause");
 		while (true)
 		{
 			system("cls");
-			cout << endl << endl << "                                 ";
-			cout << "Player " << i + 1;
+			cout << endl << endl << "                                   ";
+			cout << "Player " << i + 1 << endl << endl;
 			Draw::drawMiddle(discardPile->topCard());
 			players[i]->showHand();           // loop for each players turn
 
 			cout << endl << "Pick a card, or enter 0 to show other commands.\nInput: ";
-			cin >> playerInput;
 
-			//change player input to type char
-				//players[i]->testInput(playerInput, players[i]->hand->hand.size(), 1); // test
+			while(getline(cin, in))
+			{
+				if (isdigit(in[0]))
+				{
+					playerInput = stoi(in);
+					if (playerInput == 0 || playerInput <= players[i]->hand->hand.size())
+					{
+						break;
+					}
+				}
+				system("cls");
+				cout << endl << endl << "                                   ";
+				cout << "Player " << i + 1 << endl << endl;
+				Draw::drawMiddle(discardPile->topCard());
+				players[i]->showHand();
+				cout << endl << "Invalid input. Pick a card, or enter 0 to show other commands.\nInput: ";
+			}
 
 			if (playerInput == 0)
 			{
 				system("cls");
 				cout << "Commands:" << endl;
 				cout << "1: Draw a card." << endl;
-				cout << "2: Show rules." << endl;
-				cin >> playerInput;
+				cout << "2: Show rules." << endl << endl;
+				while (getline(cin, in))
+				{
+					if (isdigit(in[0]))
+					{
+						playerInput = stoi(in);
+						if (playerInput == 1 || playerInput == 2)
+						{
+							break;
+						}
+					}
+					system("cls");
+					cout << "Commands:" << endl;
+					cout << "1: Draw a card." << endl;
+					cout << "2: Show rules." << endl << endl;
+					cout << endl << "Invalid input.\nInput: ";
+				}
 				if (playerInput == 1)
 				{
 					if (stockPile->deck.size() == 0)
@@ -95,7 +124,7 @@ int main()
 							else
 							{
 								system("cls");
-								cout << "Skipped." << endl;
+								cout << "The deck is empty, and you have no cards you can play.\nYour turn has been skipped." << endl;
 								system("pause");
 								break;
 							}

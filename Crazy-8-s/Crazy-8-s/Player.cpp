@@ -5,7 +5,7 @@
 Player::Player(Deck* deck)
 {
 	hand = new Hand();
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		hand->hand.push_back(deck->topCard());
 		deck->delTop();
@@ -100,14 +100,31 @@ void Player::drawCard(Deck* target)
 
 Card* Player::playedEight(Card* card, Deck* deck)
 {
+	string in;
 	int change;
 	system("cls");
 	Draw::drawMiddle(deck->topCard());
 	cout << endl << endl;
 	Draw::drawChange();
 	cout << endl;
-	cout << "Choose a suit. (Input the number above the suit you want) Suit: ";
-	cin >> change;
+	cout << "Choose a suit. (Input the number above the suit you want)\nSuit: ";
+	while (getline(cin, in))
+	{
+		if (isdigit(in[0]))
+		{
+			change = stoi(in);
+			if (change >= 1 || change <= 4)
+			{
+				break;
+			}
+		}
+		system("cls");
+		Draw::drawMiddle(deck->topCard());
+		cout << endl << endl;
+		Draw::drawChange();
+		cout << endl;
+		cout << "Invalid input. Choose a suit. (Input the number above the suit you want)\nSuit: ";
+	}
 	card->changeSuit(change);
 	return card;
 
@@ -124,39 +141,3 @@ bool Player::testWin()
 		return false;
 	}
 }
-
-/*int Player::testInput(char input, int max, int min) // test
-{
-	bool valid = false;
-
-	const char* temp = &input;
-
-	if (isdigit(input) == true)
-	{
-		atoi(temp);
-		if (input < max || input >= min)
-		{
-			valid = true;
-		}
-		else
-		{
-			valid = false;
-		}
-	}
-	else if (isalpha(input) == true)
-	{
-		valid = false;
-	}
-
-	if (valid == true)
-	{
-		return input; // change ascii to int and return int value
-	}
-	else
-	{
-		system("cls");
-		cout << "Enter a valid input" << endl;
-		system("pause");
-	}
-}*/
-
