@@ -21,7 +21,14 @@ int main()
 	Deck* stockPile = new Deck(false);
 	Deck* discardPile = new Deck(true);
 	stockPile->firstCard(discardPile);
+
+
+	HWND console = GetConsoleWindow();
+	MoveWindow(console, 0, 0, 800, 2000, TRUE);
+
+
 	Draw::drawStart();
+
 
 	cout << "Enter the number of players (between 2 and 4): ";
 	while (getline(cin, in)) 
